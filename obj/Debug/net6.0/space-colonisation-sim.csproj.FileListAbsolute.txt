@@ -1,0 +1,15 @@
+/home/hiroji/Documents/2022-code/space-colonisation-sim/bin/Debug/net6.0/space-colonisation-sim
+/home/hiroji/Documents/2022-code/space-colonisation-sim/bin/Debug/net6.0/space-colonisation-sim.deps.json
+/home/hiroji/Documents/2022-code/space-colonisation-sim/bin/Debug/net6.0/space-colonisation-sim.runtimeconfig.json
+/home/hiroji/Documents/2022-code/space-colonisation-sim/bin/Debug/net6.0/space-colonisation-sim.dll
+/home/hiroji/Documents/2022-code/space-colonisation-sim/bin/Debug/net6.0/ref/space-colonisation-sim.dll
+/home/hiroji/Documents/2022-code/space-colonisation-sim/bin/Debug/net6.0/space-colonisation-sim.pdb
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.csproj.AssemblyReference.cache
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.GeneratedMSBuildEditorConfig.editorconfig
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.AssemblyInfoInputs.cache
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.AssemblyInfo.cs
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.csproj.CoreCompileInputs.cache
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.dll
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/ref/space-colonisation-sim.dll
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.pdb
+/home/hiroji/Documents/2022-code/space-colonisation-sim/obj/Debug/net6.0/space-colonisation-sim.genruntimeconfig.cache
