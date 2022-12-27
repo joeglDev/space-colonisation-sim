@@ -12,11 +12,20 @@ public string TitleText = @"   _____                          ______      __    
     Find me at: https://github.com/joeglDev
     
     This text based adventure will (eventually) simulate the progression of
-    space-fairing civilisation from their home planet to the stars.
-    Enjoy!";
+    space-fairing civilisations from their home planet to the stars.
+    Enjoy!
+    
+    Please select an option: (n = start a new game, l = load a game from file)";
 
     //methods
      public void runTitle() {
         Console.WriteLine(this.TitleText);
+        string? selectOption = Console.ReadLine();
+        if(selectOption == "n" || selectOption == "N" ) {
+            Console.WriteLine("Starting a new game: ");
+            //move to select civ options
+        } else if (selectOption == "l" || selectOption == "L") {
+            Console.WriteLine("IMPLEMENT LOAD FROM FILE HERE");
+        }
     }
 }
