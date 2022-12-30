@@ -11,6 +11,6 @@ In VS Code: install dotNet and run in terminal `dotnet run`.
 
 ### 1.1. Map (start planet -> solar system -> neighbouring systems etc)
 
-### 2. Mining (bring back excess fuel, minerals, water)
+### 2. Mining (bring back excess fuel, minerals, water).
 
 ### 3. Create and deploy colonies.
