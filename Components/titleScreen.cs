@@ -23,6 +23,8 @@ public string TitleText = @"   _____                          ______      __    
         string? selectOption = Console.ReadLine();
         if(selectOption == "n" || selectOption == "N" ) {
             Console.WriteLine("Starting a new game: ");
+
+            //init save log
             //move to select civ options
         } else if (selectOption == "l" || selectOption == "L") {
             Console.WriteLine("IMPLEMENT LOAD FROM FILE HERE");

@@ -13,4 +13,4 @@ In VS Code: install dotNet and run in terminal `dotnet run`.
 
 ### 2. Mining (bring back excess fuel, minerals, water)
 
-### 3. Create and deploy colonies
+### 3. Create and deploy colonies.
