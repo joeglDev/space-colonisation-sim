@@ -9,7 +9,7 @@ In VS Code: install dotNet and run in terminal `dotnet run`.
 
 ### 1. Civilization setup (select starting world) / UN / vilous -> print char -> set generators etc
 
-### 1.1. Map (start planet -> solar system -> neighbouring systems etc)
+### 1.1. Map (start planet -> solar system -> neighbouring systems etc).
 
 ### 2. Mining (bring back excess fuel, minerals, water).
 
