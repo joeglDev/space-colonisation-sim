@@ -49,16 +49,27 @@ namespace makeNewGame
         
             // Echo 
             Console.WriteLine($"You choose to play as {civChoice}.");
-          
-            //add civ bios
-            //recrd new game to json
-
-
-
-
-
-
+            this.createSaveData();
+        
         }
 
+public void createSaveData() {
+List<data> _data = new List<data>();
+_data.Add(new data()
+{
+    Id = 1,
+    civ = this.selectedCiv
+});
+
+string json = JsonSerializer.Serialize(_data);
+File.WriteAllText("./data/saveData.json", json);
+
+}
     }
+
+    public class data
+{
+    public int Id { get; set; }
+    public string? civ {get; set;}
+}
 }
