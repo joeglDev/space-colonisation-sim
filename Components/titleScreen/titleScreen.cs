@@ -24,6 +24,7 @@ public string TitleText = @"   _____                          ______      __    
         if(selectOption == "n" || selectOption == "N" ) {
             NewGame startNewGame = new NewGame();
             startNewGame.createNewGame();
+          
 
             //init save log
             //move to select civ options
