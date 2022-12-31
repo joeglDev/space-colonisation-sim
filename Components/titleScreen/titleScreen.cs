@@ -22,7 +22,8 @@ public string TitleText = @"   _____                          ______      __    
         Console.WriteLine(this.TitleText);
         string? selectOption = Console.ReadLine();
         if(selectOption == "n" || selectOption == "N" ) {
-            Console.WriteLine("Starting a new game: ");
+            NewGame startNewGame = new NewGame();
+            startNewGame.createNewGame();
 
             //init save log
             //move to select civ options
