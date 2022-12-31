@@ -1,5 +1,7 @@
 using Spectre.Console;
 using System.Text.Json;
+using System;
+using System.IO;
 
 namespace makeNewGame
 {
@@ -54,6 +56,19 @@ namespace makeNewGame
         }
 
 public void createSaveData() {
+    //if save file found then increment id and add
+        //read id and increment 
+        //save new
+if (File.Exists("./data/saveData.json")) {
+    string text = File.ReadAllText("./data/saveData.json");
+         data[]? saveData = JsonSerializer.Deserialize<data[]>(text);
+        int numOfSaves = saveData.Length;
+        int newID = numOfSaves += 1;
+        //add data to arr
+        
+   // string newID = 
+} else {
+    //create new file if not found
 List<data> _data = new List<data>();
 _data.Add(new data()
 {
@@ -63,7 +78,7 @@ _data.Add(new data()
 
 string json = JsonSerializer.Serialize(_data);
 File.WriteAllText("./data/saveData.json", json);
-
+}
 }
     }
 
