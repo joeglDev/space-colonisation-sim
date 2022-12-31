@@ -1,3 +1,4 @@
+using makeNewGame;
 class TitleScreen {
 
     //fields

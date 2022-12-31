@@ -1,51 +1,64 @@
 using Spectre.Console;
+using System.Text.Json;
 
-class NewGame
+namespace makeNewGame
 {
-    private string? soceity;
 
-    //methods
-    public void createNewGame()
+
+
+
+    class NewGame
     {
-        Console.WriteLine(@"
+
+        private string? selectedCiv;
+
+        //methods
+        public void createNewGame()
+        {
+            //access civilisation Data
+            civData civs = new civData();
+
+            //console text
+            Console.WriteLine(@"
         Hello, you are spark from which trillions will emerge,
         In order to start your journey we will need to ask you some questions.");
 
+            //console choices
+            string civChoice = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Please select your [green]home star system:[/]")
+                .PageSize(10)
+                .AddChoices(new[] {
+            civs.civsDict["solUN"]["fullName"], civs.civsDict["vilousShigu"]["fullName"], civs.civsDict["vilousGold"]["fullName"]
+                }));
+
+            //convert text into var name
+            //soceity is stored as a string: SystemSoceity
+            if (civChoice == civs.civsDict["solUN"]["fullName"])
+            {
+                this.selectedCiv = "solUN";
+            }
+            else if (civChoice == civs.civsDict["vilousShigu"]["fullName"])
+            {
+                this.selectedCiv = "vilousShigu";
+            }
+            else if (civChoice == civs.civsDict["vilousGold"]["fullName"])
+            {
+                this.selectedCiv = "vilousGold";
+            }
+        
+            // Echo 
+            Console.WriteLine($"You choose to play as {civChoice}.");
+          
+            //add civ bios
+            //recrd new game to json
 
 
-        //console choices
-        string soceityChoice = AnsiConsole.Prompt(
-        new SelectionPrompt<string>()
-            .Title("Please select your [green]home star system:[/]")
-            .PageSize(10)
-            .AddChoices(new[] {
-            "The Re-United Nations of Earth", "The Shigu Imperium", "The Enlightened Kingdom of Gold Ring"
-            }));
 
-        //convert text into var name
-        switch (soceityChoice)
-        {
-            case "The Re-United Nations of Earth":
-                this.soceity = soceityChoice;
-                break;
-            case "The Shigu Imperium":
-                this.soceity = soceityChoice;
-                break;
-            case "The Enlightened Kingdom of Gold Ring":
-            this.soceity = soceityChoice;
-            break;
+
+
+
         }
 
-        // Echo 
-        Console.WriteLine($"You choose to play as {this.soceity}.");
-        //add civ bios
-        //recrd new game to json
-
-
-
-
-
-
     }
-
 }
