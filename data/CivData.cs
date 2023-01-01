@@ -1,13 +1,12 @@
-/*{
-    "solUN": {"fullName": "The Re-United Nations of Earth", "flavourText": ""},
-    "vilousShigu": {"fullName": "The Shigu Imperium", "flavourText": ""},
-    "vilousGold": {"fullName": "The Enlightened Kingdom of Gold Ring", "flavourText": ""}
-}
-*/
-class civData
+/// <summary>
+/// Class <c>CivData</c> Creates a dictionary to link short civilisation names to civilisation attributes.
+/// </summary>
+class CivData
 {
 
-
+/// <summary>
+/// Dictionary which links civilsation short name to civilisation attributes.
+/// </summary>
     public Dictionary<string, Dictionary<string, string>> civsDict =
         new Dictionary<string, Dictionary<string, string>>
         {

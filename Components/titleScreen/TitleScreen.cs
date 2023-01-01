@@ -1,8 +1,14 @@
-using makeNewGame;
-class TitleScreen {
+/// <summary>
+/// Class <c>TitleScreen</c> Component of code which renders the title screen to the user on game boot.
+/// </summary>
+class TitleScreen
+{
 
     //fields
-public string TitleText = @"   _____                          ______      __            _            __  _                _____ _         
+    /// <summary>
+    /// Title text to display to the user on game boot.
+    /// </summary>
+    public string TitleText = @"   _____                          ______      __            _            __  _                _____ _         
   / ___/____  ____ _________     / ____/___  / /___  ____  (_)________ _/ /_(_)___  ____     / ___/(_)___ ___ 
   \__ \/ __ \/ __ `/ ___/ _ \   / /   / __ \/ / __ \/ __ \/ / ___/ __ `/ __/ / __ \/ __ \    \__ \/ / __ `__ \
  ___/ / /_/ / /_/ / /__/  __/  / /___/ /_/ / / /_/ / / / / (__  ) /_/ / /_/ / /_/ / / / /   ___/ / / / / / / /
@@ -19,17 +25,24 @@ public string TitleText = @"   _____                          ______      __    
     Please select an option: (n = start a new game, l = load a game from file)";
 
     //methods
-     public void runTitle() {
+    /// <summary>
+    /// Method <c>runTitle</c> Displays title text to the suer on game boot and asks if user will load a game or start a new game.
+    /// </summary>
+    public void runTitle()
+    {
         Console.WriteLine(this.TitleText);
         string? selectOption = Console.ReadLine();
-        if(selectOption == "n" || selectOption == "N" ) {
+        if (selectOption == "n" || selectOption == "N")
+        {
             NewGame startNewGame = new NewGame();
             startNewGame.createNewGame();
-          
+
 
             //init save log
             //move to select civ options
-        } else if (selectOption == "l" || selectOption == "L") {
+        }
+        else if (selectOption == "l" || selectOption == "L")
+        {
             Console.WriteLine("IMPLEMENT LOAD FROM FILE HERE");
         }
     }
