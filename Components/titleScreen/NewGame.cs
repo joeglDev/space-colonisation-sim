@@ -1,7 +1,6 @@
 using Spectre.Console;
 using System.Text.Json;
-using System;
-using System.IO;
+
 
 namespace makeNewGame
 {
@@ -48,43 +47,56 @@ namespace makeNewGame
             {
                 this.selectedCiv = "vilousGold";
             }
-        
+
             // Echo 
             Console.WriteLine($"You choose to play as {civChoice}.");
             this.createSaveData();
-        
+
         }
 
-public void createSaveData() {
-    //if save file found then increment id and add
-        //read id and increment 
-        //save new
-if (File.Exists("./data/saveData.json")) {
-    string text = File.ReadAllText("./data/saveData.json");
-         data[]? saveData = JsonSerializer.Deserialize<data[]>(text);
-        int numOfSaves = saveData.Length;
-        int newID = numOfSaves += 1;
-        //add data to arr
-        
-   // string newID = 
-} else {
-    //create new file if not found
-List<data> _data = new List<data>();
-_data.Add(new data()
-{
-    Id = 1,
-    civ = this.selectedCiv
-});
+        public void createSaveData()
+        {
+            //if save file found then increment id and add
+            //read id and increment 
+            //save new
+            if (File.Exists("./data/saveData.json"))
+            {
+                string text = File.ReadAllText("./data/saveData.json");
+                data[]? saveData = JsonSerializer.Deserialize<data[]>(text);
+                int numOfSaves = saveData!.Length;
+                int newID = numOfSaves += 1;
+                //add data to arr
+                List<data> newData = new List<data>();
+                newData.Add( new data()
+                {
+                    Id = newID,
+                    civ = this.selectedCiv
+                });
+                
+                //concat new newData list to saveData list
+                List<data> combinedData = saveData.Concat(newData).ToList();
+                string json = JsonSerializer.Serialize(combinedData);
+                File.WriteAllText("./data/saveData.json", json); 
+            }
+            else
+            {
+                //create new file if not found
+                List<data> _data = new List<data>();
+                _data.Add(new data()
+                {
+                    Id = 1,
+                    civ = this.selectedCiv
+                });
 
-string json = JsonSerializer.Serialize(_data);
-File.WriteAllText("./data/saveData.json", json);
-}
-}
+                string json = JsonSerializer.Serialize(_data);
+                File.WriteAllText("./data/saveData.json", json);
+            }
+        }
     }
 
     public class data
-{
-    public int Id { get; set; }
-    public string? civ {get; set;}
-}
+    {
+        public int Id { get; set; }
+        public string? civ { get; set; }
+    }
 }
