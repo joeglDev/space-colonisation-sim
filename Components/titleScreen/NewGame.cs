@@ -11,9 +11,9 @@ using System.Text.Json;
 /// </summary>
 class NewGame
 {
-/// <summary>
-/// holds the short name of the civilisation that the player has chosen to play as.
-/// </summary>
+    /// <summary>
+    /// holds the short name of the civilisation that the player has chosen to play as.
+    /// </summary>
     private string? selectedCiv;
 
     //methods
@@ -28,7 +28,13 @@ class NewGame
         //console text
         Console.WriteLine(@"
         Hello, you are spark from which trillions will emerge,
-        In order to start your journey we will need to ask you some questions.");
+        In order to start your journey we will need to ask you some questions.
+        
+        Please press any key to continue
+        ");
+
+        //wait
+        Console.ReadLine();
 
         //console choices
         string civChoice = AnsiConsole.Prompt(
@@ -60,7 +66,7 @@ class NewGame
 
     }
 
-/// <summary>
+    /// <summary>
     /// Method <c>createSaveData</c> uses class properties to save player game setup data to a .json file.
     /// </summary>
     public void createSaveData()
@@ -68,37 +74,49 @@ class NewGame
         //if save file found then increment id and add
         //read id and increment 
         //save new
-        if (File.Exists("./data/saveData.json"))
+        try
         {
-            string text = File.ReadAllText("./data/saveData.json");
-            SaveDataModel[]? saveData = JsonSerializer.Deserialize<SaveDataModel[]>(text);
-            int numOfSaves = saveData!.Length;
-            int newID = numOfSaves += 1;
-            //add data to arr
-            List<SaveDataModel> newData = new List<SaveDataModel>();
-            newData.Add(new SaveDataModel()
+            if (File.Exists("./data/saveData.json"))
             {
-                Id = newID,
-                civ = this.selectedCiv
-            });
+                string text = File.ReadAllText("./data/saveData.json");
+                SaveDataModel[]? saveData = JsonSerializer.Deserialize<SaveDataModel[]>(text);
+                int numOfSaves = saveData!.Length;
+                int newID = numOfSaves += 1;
+                //add data to arr
+                List<SaveDataModel> newData = new List<SaveDataModel>();
+                newData.Add(new SaveDataModel()
+                {
+                    Id = newID,
+                    civ = this.selectedCiv
+                });
 
-            //concat new newData list to saveData list
-            List<SaveDataModel> combinedData = saveData.Concat(newData).ToList();
-            string json = JsonSerializer.Serialize(combinedData);
-            File.WriteAllText("./data/saveData.json", json);
+                //concat new newData list to saveData list
+                List<SaveDataModel> combinedData = saveData.Concat(newData).ToList();
+                string json = JsonSerializer.Serialize(combinedData);
+                File.WriteAllText("./data/saveData.json", json);
+            }
+            else
+            {
+                //create new file if not found
+                List<SaveDataModel> _data = new List<SaveDataModel>();
+                _data.Add(new SaveDataModel()
+                {
+                    Id = 1,
+                    civ = this.selectedCiv
+                });
+
+                string json = JsonSerializer.Serialize(_data);
+                File.WriteAllText("./data/saveData.json", json);
+            }
+            Console.WriteLine(@"Save data successfully created. 
+
+        Press any key to continue:
+        ");
+            Console.ReadLine();
         }
-        else
+        catch
         {
-            //create new file if not found
-            List<SaveDataModel> _data = new List<SaveDataModel>();
-            _data.Add(new SaveDataModel()
-            {
-                Id = 1,
-                civ = this.selectedCiv
-            });
-
-            string json = JsonSerializer.Serialize(_data);
-            File.WriteAllText("./data/saveData.json", json);
+            Console.WriteLine("Sorry an error occured please try again.");
         }
     }
 }
