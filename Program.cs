@@ -2,14 +2,18 @@
 using StellarObjectConstructors;
 //run title screen
 TitleScreen initTitle = new TitleScreen();
-//initTitle.runTitle();
+initTitle.runTitle();
 
-//testing init objects then feed into SolarSystemConstructot
+
+//testing init objects then feed into SolarSystemConstructor
+/*
 Star Sol = new Star("Sol");
 Planet Earth = new Planet("Earth");
 SolarSystem SolSystem = new SolarSystem();
 SolSystem.AddStellarObject(Sol);
 SolSystem.AddStellarObject(Earth);
+SolSystem.GetSystemContents();
+*/
 
 
 

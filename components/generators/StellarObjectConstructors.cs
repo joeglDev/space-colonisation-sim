@@ -14,18 +14,22 @@ namespace StellarObjectConstructors
             set { systemContents = value; }
         }
 
-        /*
-        //constructor
-                public SolarSystem(List<StellarObject> systemContent)
-                {
-                    systemContents = systemContent;
-                }
-                */
-
         //methods
         public void AddStellarObject(StellarObject obj)
         {
             this.SystemContents!.Add(obj);
+        }
+
+        public void GetSystemContents()
+        {
+
+            //organise by type and get number of each
+            foreach (var obj in this.SystemContents!)
+            {
+                string name = obj.Name;
+                string type = obj.GetType().ToString()[26..];
+                Console.WriteLine($"{type}: {name}");
+            }
         }
     }
 
