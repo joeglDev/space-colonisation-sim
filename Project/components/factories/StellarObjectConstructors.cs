@@ -8,7 +8,7 @@ namespace StellarObjectConstructors
     /// <summary>
     /// Class <c>SolarSystem</c> Models a solar system.
     /// </summary>
-    class SolarSystem
+    public class SolarSystem
     {
         /// <summary>
         /// Private field- a list containing each object within the solar system.
@@ -51,7 +51,7 @@ namespace StellarObjectConstructors
     /// <summary>
     /// Class <c>StellarObject</c> Models a stellar object.
     /// </summary>
-    class StellarObject
+    public class StellarObject
     {
         /// <summary>
         /// Gets and sets the name of the object.
@@ -70,7 +70,7 @@ namespace StellarObjectConstructors
     /// Class <c>Star</c> An object which models a star.
     /// <seealso> Inherits from base: <c> StellarObject</c> </seealso>
     /// </summary>
-    class Star : StellarObject
+    public class Star : StellarObject
     {
         //constructor
         public Star(string nameString) : base(nameString)
@@ -85,7 +85,7 @@ namespace StellarObjectConstructors
     /// Class <c>Planet</c> An object which models a Planet.
     /// <seealso> Inherits from base: <c> StellarObject</c> </seealso>
     /// </summary>
-    class Planet : StellarObject
+    public class Planet : StellarObject
     {
         //constructor
         public Planet(string nameString) : base(nameString)
@@ -95,5 +95,6 @@ namespace StellarObjectConstructors
 
         }
     }
+
 
 }
