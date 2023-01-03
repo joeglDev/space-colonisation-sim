@@ -28,4 +28,6 @@ Currently save data is stored by reading and writing from a `.json` file which i
 
 ### Unit testing of constructors and methods
 
-To be implemented asap.
+Unit tests are found in the ./UnitTests directory and are facilitated by xUnit.
+
+To run these tests cd into `./UnitTests` and run `dotnet test` in the VS Code terminal.
