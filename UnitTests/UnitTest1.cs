@@ -14,13 +14,17 @@ namespace UnitTests
          /// <summary>
     /// Method <c>NamePropertyTest</c> tests properties of namespace StellarObject class properties.
     /// </summary>
-        public void NamePropertyTest()
+        public void PropertyTest()
         {
-            Assert.Equal("Sol", Sol.Name);
+            //passed constructor properties of StellarObject
+            Assert.Equal("name", TestStellarObject.Name);
+            Assert.Equal(1, TestStellarObject.Mass);
+            Assert.Equal(3, TestStellarObject.Radius);
+            //randomely assigned properties
         }
 
         //setup
-        Star Sol = new Star("Sol");    
+        StellarObject TestStellarObject = new StellarObject("name", 1, 3);   
     }
 
     /* Theories take multiple runs of tests and are sometimes exoected to sometimes return false

@@ -56,13 +56,22 @@ namespace StellarObjectConstructors
         /// <summary>
         /// Gets and sets the name of the object.
         /// </summary>
-        public string Name  // property
-        { get; set; }
+        public string Name { get; set; } 
+        /// <summary>
+        /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
+        /// </summary>
+        public int Mass { get; set; } 
+        /// <summary>
+        /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
+        /// </summary>
+        public int Radius{ get; set; }
 
         //constructor
-        public StellarObject(string nameString)
+        public StellarObject(string  nameString, int massInt, int radiusInt)
         {
             Name = nameString; // Set the initial value for model
+            Mass = massInt;
+            Radius = radiusInt;
         }
     }
 
@@ -73,7 +82,7 @@ namespace StellarObjectConstructors
     public class Star : StellarObject
     {
         //constructor
-        public Star(string nameString) : base(nameString)
+        public Star(string nameString, int massInt, int radiusInt) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to stars
 
@@ -88,7 +97,7 @@ namespace StellarObjectConstructors
     public class Planet : StellarObject
     {
         //constructor
-        public Planet(string nameString) : base(nameString)
+        public Planet(string nameString, int massInt, int radiusInt) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to planets
 
