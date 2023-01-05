@@ -51,6 +51,23 @@ namespace UnitTests
     {
         [Fact]
         /// <summary>
+        /// Method <c>calculateGravityTest</c> tests properties of namespace StellarObject class properties.
+        /// </summary>
+        public void calculateGravityTest()
+        {
+            //passed constructor properties of StellarObject
+            Assert.Equal(275.621, Sol.calculateGravity());
+             Assert.Equal(9.847, Earth.calculateGravity());
+            
+            //randomely assigned properties
+        }
+
+        //setup
+        Sol Sol = new Sol();
+        Planet Earth = new Planet("Earth", 0.00000300273, 0.00916794, 0, true);
+       
+        [Fact]
+        /// <summary>
         /// Method <c>PropertyTestStellarObject</c> tests properties of namespace StellarObject class properties.
         /// </summary>
         public void PropertyTestStellarObject()

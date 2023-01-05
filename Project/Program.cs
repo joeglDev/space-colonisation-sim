@@ -6,7 +6,7 @@ initTitle.runTitle();
 
 
 //testing init objects then feed into SolarSystemConstructor
-/*
+
 //create star Sol
 Sol Sol = new Sol();
 Console.WriteLine($"The life stage of the Star {Sol.Name} is {Sol.Stage}.");
@@ -14,7 +14,10 @@ Console.WriteLine($"The life stage of the Star {Sol.Name} is {Sol.Stage}.");
 SolarSystem SolSystem = new SolarSystem();
 SolSystem.AddStellarObject(Sol);
 SolSystem.GetSystemContents();
-*/
+Console.WriteLine(Sol.calculateGravity());
+
+Planet Earth = new Planet("Earth", 0.00000300273, 0.00916794, 0, true);
+Console.WriteLine(Earth.calculateGravity());
 
 
 

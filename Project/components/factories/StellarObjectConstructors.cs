@@ -61,18 +61,35 @@ namespace StellarObjectConstructors
         /// <summary>
         /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
         /// </summary>
-        public int Mass { get; set; }
+        public double Mass { get; set; }
         /// <summary>
         /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
         /// </summary>
-        public int Radius { get; set; }
+        public double Radius { get; set; }
 
         //constructor
-        public StellarObject(string nameString, int massInt, int radiusInt)
+        public StellarObject(string nameString, double massDouble, double radiusDouble)
         {
             Name = nameString; // Set the initial value for model
-            Mass = massInt;
-            Radius = radiusInt;
+            Mass = massDouble;
+            Radius = radiusDouble;
+        }
+
+        //methods 
+        //methods
+        /// <summary>
+        /// Method <c>calculateGravity</c> calculates gravity of a object in m/s^2 from M and R.
+       /// <remarks>Note- method is not very accurate. Seems to have small errors.</remarks>
+        /// </summary>
+        public double calculateGravity()
+        {
+           //calculate gravity from mass and radius
+           //convert to SOLAR MASS
+           double G = 6.67 * (Math.Pow(10, -11)); 
+           double M = this.Mass *  (2.000 * Math.Pow(10, 30));
+           double R = this.Radius * (6.957 * Math.Pow(10, 8));
+           double Gravity = Math.Round(  G * M / (R * R), 3);
+           return Gravity;
         }
     }
 
@@ -86,7 +103,7 @@ namespace StellarObjectConstructors
 
         /// <summary>
         ///enum constants which correspond to the main sequence stage of the star.
-        /// Note- get by int value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
+        /// Note- get by double value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
         /// </summary>
         public enum MainSequenceStage
         {
@@ -99,7 +116,7 @@ namespace StellarObjectConstructors
         public MainSequenceStage Stage { get; set; }
 
         //constructor
-        public Star(string nameString, int massInt, int radiusInt, int stageInt) : base(nameString, massInt, radiusInt)
+        public Star(string nameString, double massDouble, double radiusDouble, int stageInt) : base(nameString, massDouble, radiusDouble)
         {
             //add properties unique to stars
             this.Stage = (MainSequenceStage)Enum.ToObject(typeof(MainSequenceStage), stageInt);
@@ -115,20 +132,20 @@ namespace StellarObjectConstructors
         /// <summary>
         /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
         /// </summary>
-        public new int Mass { get; set; } = 1;
+        public new double Mass { get; set; } = 1;
         /// <summary>
         /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
         /// </summary>
-        public new int Radius { get; set; } = 1;
+        public new double Radius { get; set; } = 1;
 
         /// <summary>
         ///enum constants which correspond to the main sequence stage of the star.
-        /// Note- get by int value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
+        /// Note- get by double value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
         /// </summary>
         public new MainSequenceStage Stage { get; set; } = MainSequenceStage.MainSequence;
 
         //constructor
-        public Sol(string nameString = "Sol", int massInt = 1, int radiusInt = 1, int stageInt = 1) : base(nameString, massInt, radiusInt, stageInt)
+        public Sol(string nameString = "Sol", double massDouble = 1, double radiusDouble = 1, int stageInt = 1) : base(nameString, massDouble, radiusDouble, stageInt)
         {
             //add properties unique to Sol
 
@@ -166,13 +183,11 @@ namespace StellarObjectConstructors
         public bool IsHabitable { get; set; }
 
         //constructor
-        public Planet(string nameString, int massInt, int radiusInt, int compositionInt, bool isHabitableBool) : base(nameString, massInt, radiusInt)
+        public Planet(string nameString, double massDouble, double radiusDouble, int compositionInt, bool isHabitableBool) : base(nameString, massDouble, radiusDouble)
         {
             //add properties unique to planets
             this.Composition = (PlanetComposition)Enum.ToObject(typeof(PlanetComposition), compositionInt);
             this.IsHabitable = isHabitableBool;
-
-
         }
     }
 
