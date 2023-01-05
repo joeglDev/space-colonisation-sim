@@ -99,11 +99,12 @@ namespace StellarObjectConstructors
         public  MainSequenceStage Stage {get; set;}
 
         //constructor
-        public Star(string nameString, int massInt, int radiusInt, MainSequenceStage stage) : base(nameString, massInt, radiusInt)
+        public Star(string nameString, int massInt, int radiusInt, int stageInt) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to stars
            // MainSequenceStage Stage = (MainSequenceStage) sequenceStageInt;
-           this.Stage = stage;
+           //this.Stage = stage;
+           this.Stage = (MainSequenceStage)Enum.ToObject(typeof(MainSequenceStage) , stageInt);
 
            
 

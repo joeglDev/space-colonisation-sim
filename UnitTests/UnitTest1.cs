@@ -25,7 +25,7 @@ namespace UnitTests
         }
 
         //setup
-        Star TestStar = new Star("name", 2, 3, Star.MainSequenceStage.MainSequence);  
+        Star TestStar = new Star("name", 2, 3, 1);  
         
     }
 
