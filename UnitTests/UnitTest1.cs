@@ -6,6 +6,30 @@ using StellarObjectConstructors;
 namespace UnitTests
 {
     /// <summary>
+    /// Class <c> StarObjectFactoriesUnitTests</c> xunit unit testing class to test properties of class Star.
+    /// </summary>
+    public class StarObjectFactoriesUnitTests
+    {
+        [Fact]
+         /// <summary>
+    /// Method <c>NamePropertyTest</c> tests properties of namespace StarObject class properties.
+    /// </summary>
+        public void PropertyTestStellarObject()
+        {
+            //passed constructor properties of StellarObject
+            Assert.Equal("name", TestStar.Name);
+            Assert.Equal(2, TestStar.Mass);
+            Assert.Equal(3,TestStar.Radius);
+             Assert.Equal(Star.MainSequenceStage.MainSequence, TestStar.Stage);
+           
+        }
+
+        //setup
+        Star TestStar = new Star("name", 2, 3, Star.MainSequenceStage.MainSequence);  
+        
+    }
+
+     /// <summary>
     /// Class <c> StellarObjectFactoriesUnitTests</c> xunit unit testing class to test properties of namespace StellarObjectConstructors.
     /// </summary>
     public class StellarObjectFactoriesUnitTests
@@ -14,7 +38,7 @@ namespace UnitTests
          /// <summary>
     /// Method <c>NamePropertyTest</c> tests properties of namespace StellarObject class properties.
     /// </summary>
-        public void PropertyTest()
+        public void PropertyTestStellarObject()
         {
             //passed constructor properties of StellarObject
             Assert.Equal("name", TestStellarObject.Name);

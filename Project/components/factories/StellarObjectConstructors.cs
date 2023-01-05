@@ -10,6 +10,7 @@ namespace StellarObjectConstructors
     /// </summary>
     public class SolarSystem
     {
+
         /// <summary>
         /// Private field- a list containing each object within the solar system.
         /// </summary>
@@ -56,18 +57,18 @@ namespace StellarObjectConstructors
         /// <summary>
         /// Gets and sets the name of the object.
         /// </summary>
-        public string Name { get; set; } 
+        public string Name { get; set; }
         /// <summary>
         /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
         /// </summary>
-        public int Mass { get; set; } 
+        public int Mass { get; set; }
         /// <summary>
         /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
         /// </summary>
-        public int Radius{ get; set; }
+        public int Radius { get; set; }
 
         //constructor
-        public StellarObject(string  nameString, int massInt, int radiusInt)
+        public StellarObject(string nameString, int massInt, int radiusInt)
         {
             Name = nameString; // Set the initial value for model
             Mass = massInt;
@@ -81,11 +82,30 @@ namespace StellarObjectConstructors
     /// </summary>
     public class Star : StellarObject
     {
+        //properties
+
+        /// <summary>
+        ///enum constants which correspond to the main sequence stage of the star.
+        /// Note- get by int value 1= White Dwarf, 2= Main Sequence Star, 3= Red Giant 4= Blue Giant
+        /// </summary>
+        public enum MainSequenceStage
+        {
+            WhiteDwarf,
+            MainSequence,
+            RedGiant,
+            BlueGiant,
+        }
+
+        public  MainSequenceStage Stage {get; set;}
+
         //constructor
-        public Star(string nameString, int massInt, int radiusInt) : base(nameString, massInt, radiusInt)
+        public Star(string nameString, int massInt, int radiusInt, MainSequenceStage stage) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to stars
+           // MainSequenceStage Stage = (MainSequenceStage) sequenceStageInt;
+           this.Stage = stage;
 
+           
 
         }
     }
@@ -104,6 +124,7 @@ namespace StellarObjectConstructors
 
         }
     }
+
 
 
 }
