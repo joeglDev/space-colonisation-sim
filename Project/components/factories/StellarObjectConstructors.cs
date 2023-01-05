@@ -86,7 +86,7 @@ namespace StellarObjectConstructors
 
         /// <summary>
         ///enum constants which correspond to the main sequence stage of the star.
-        /// Note- get by int value 1= White Dwarf, 2= Main Sequence Star, 3= Red Giant 4= Blue Giant
+        /// Note- get by int value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
         /// </summary>
         public enum MainSequenceStage
         {
@@ -102,13 +102,37 @@ namespace StellarObjectConstructors
         public Star(string nameString, int massInt, int radiusInt, int stageInt) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to stars
-           // MainSequenceStage Stage = (MainSequenceStage) sequenceStageInt;
-           //this.Stage = stage;
            this.Stage = (MainSequenceStage)Enum.ToObject(typeof(MainSequenceStage) , stageInt);
-
-           
-
         }
+    }
+
+    public class Sol : Star {
+/// <summary>
+        /// Gets and sets the name of the object.
+        /// </summary>
+        public new string Name { get; set; } = "Sol";
+        /// <summary>
+        /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
+        /// </summary>
+        public new int Mass { get; set; } = 1;
+        /// <summary>
+        /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
+        /// </summary>
+        public new int Radius { get; set; } = 1;
+
+        /// <summary>
+        ///enum constants which correspond to the main sequence stage of the star.
+        /// Note- get by int value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
+        /// </summary>
+        public new MainSequenceStage Stage {get; set;} = MainSequenceStage.MainSequence;
+
+//constructor
+        public Sol(string nameString = "Sol", int massInt = 1, int radiusInt = 1, int stageInt = 1) : base(nameString, massInt, radiusInt, stageInt)
+        {
+            //add properties unique to Sol
+         
+        }
+        
     }
 
     /// <summary>
@@ -121,6 +145,7 @@ namespace StellarObjectConstructors
         public Planet(string nameString, int massInt, int radiusInt) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to planets
+
 
 
         }
