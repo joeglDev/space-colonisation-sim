@@ -96,18 +96,19 @@ namespace StellarObjectConstructors
             BlueGiant,
         }
 
-        public  MainSequenceStage Stage {get; set;}
+        public MainSequenceStage Stage { get; set; }
 
         //constructor
         public Star(string nameString, int massInt, int radiusInt, int stageInt) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to stars
-           this.Stage = (MainSequenceStage)Enum.ToObject(typeof(MainSequenceStage) , stageInt);
+            this.Stage = (MainSequenceStage)Enum.ToObject(typeof(MainSequenceStage), stageInt);
         }
     }
 
-    public class Sol : Star {
-/// <summary>
+    public class Sol : Star
+    {
+        /// <summary>
         /// Gets and sets the name of the object.
         /// </summary>
         public new string Name { get; set; } = "Sol";
@@ -124,15 +125,15 @@ namespace StellarObjectConstructors
         ///enum constants which correspond to the main sequence stage of the star.
         /// Note- get by int value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
         /// </summary>
-        public new MainSequenceStage Stage {get; set;} = MainSequenceStage.MainSequence;
+        public new MainSequenceStage Stage { get; set; } = MainSequenceStage.MainSequence;
 
-//constructor
+        //constructor
         public Sol(string nameString = "Sol", int massInt = 1, int radiusInt = 1, int stageInt = 1) : base(nameString, massInt, radiusInt, stageInt)
         {
             //add properties unique to Sol
-         
+
         }
-        
+
     }
 
     /// <summary>
@@ -141,11 +142,35 @@ namespace StellarObjectConstructors
     /// </summary>
     public class Planet : StellarObject
     {
+
+        /// <summary>
+        /// Enum value which models the classification of a planet by composition.
+        /// </summary>
+        public enum PlanetComposition
+        {
+            Rocky,
+            SuperEarth,
+            GasGiant,
+            IceGiant,
+            BrownDwarf
+        }
+
+        /// <summary>
+        ///Gets and sets the PlanetComposition of the object.
+        /// </summary>
+        public PlanetComposition Composition { get; set; }
+
+        /// <summary>
+        ///Gets and sets a boolean value representing the habitability of the planet.
+        /// </summary>
+        public bool IsHabitable { get; set; }
+
         //constructor
-        public Planet(string nameString, int massInt, int radiusInt) : base(nameString, massInt, radiusInt)
+        public Planet(string nameString, int massInt, int radiusInt, int compositionInt, bool isHabitableBool) : base(nameString, massInt, radiusInt)
         {
             //add properties unique to planets
-
+            this.Composition = (PlanetComposition)Enum.ToObject(typeof(PlanetComposition), compositionInt);
+            this.IsHabitable = isHabitableBool;
 
 
         }

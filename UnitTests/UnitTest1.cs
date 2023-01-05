@@ -66,6 +66,31 @@ namespace UnitTests
         StellarObject TestStellarObject = new StellarObject("name", 1, 3);
     }
 
+
+     /// <summary>
+    /// Class <c> PlanetFactoriesUnitTests</c> xunit unit testing class to test properties of class Planet.
+    /// </summary>
+    public class PlanetFactoriesUnitTests
+    {
+        [Fact]
+        /// <summary>
+        /// Method <c>PropertyTestPlanet</c> tests properties of class Planet class properties.
+        /// </summary>
+        public void PropertyTestPlanet()
+        {
+            //passed constructor properties of StellarObject
+            Assert.Equal("name", TestPlanet.Name);
+            Assert.Equal(1, TestPlanet.Mass);
+            Assert.Equal(3, TestPlanet.Radius);
+            Assert.Equal(Planet.PlanetComposition.SuperEarth, TestPlanet.Composition);
+            Assert.Equal(false, TestPlanet.IsHabitable);
+            //randomely assigned properties
+        }
+
+        //setup
+        Planet TestPlanet = new Planet("name", 1, 3, 1, false);
+    }
+
     /* Theories take multiple runs of tests and are sometimes exoected to sometimes return false
 [Theory]
 [InlineData(3)]
