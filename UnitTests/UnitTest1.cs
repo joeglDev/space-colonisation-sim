@@ -26,21 +26,30 @@ namespace UnitTests
 
         [Fact]
         /// <summary>
-        /// Method <c>PropertyTestSol</c> tests properties of namespace StarObject class properties.
+        /// Method <c>PropertyTestSolVilous</c> tests properties of namespace Sol and Vilous class properties.
         /// </summary>
-        public void PropertyTestSol()
+        public void PropertyTestSolVilous()
         {
             //passed constructor properties of StellarObject
             Assert.Equal("Sol", TestSol.Name);
             Assert.Equal(1, TestSol.Mass);
             Assert.Equal(1, TestSol.Radius);
             Assert.Equal(Star.MainSequenceStage.MainSequence, TestSol.Stage);
+            Assert.Equal(false, TestSol.isSolarActive);
+
+              Assert.Equal("Vilous", Vilous.Name);
+            Assert.Equal(2, Vilous.Mass);
+            Assert.Equal(1.75, Vilous.Radius);
+            Assert.Equal(Star.MainSequenceStage.MainSequence, Vilous.Stage);
+            Assert.Equal(true, Vilous.isSolarActive);
 
         }
 
         //setup
-        Star TestStar = new Star("name", 2, 3, 1);
+        Star TestStar = new Star("name", 2, 3, 1, true);
         Sol TestSol = new Sol();
+
+        Vilous Vilous = new Vilous();
 
     }
 

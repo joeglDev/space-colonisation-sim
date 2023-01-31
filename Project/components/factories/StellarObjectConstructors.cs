@@ -79,17 +79,17 @@ namespace StellarObjectConstructors
         //methods
         /// <summary>
         /// Method <c>calculateGravity</c> calculates gravity of a object in m/s^2 from M and R.
-       /// <remarks>Note- method is not very accurate. Seems to have small errors.</remarks>
+        /// <remarks>Note- method is not very accurate. Seems to have small errors.</remarks>
         /// </summary>
         public double calculateGravity()
         {
-           //calculate gravity from mass and radius
-           //convert to SOLAR MASS
-           double G = 6.67 * (Math.Pow(10, -11)); 
-           double M = this.Mass *  (2.000 * Math.Pow(10, 30));
-           double R = this.Radius * (6.957 * Math.Pow(10, 8));
-           double Gravity = Math.Round(  G * M / (R * R), 3);
-           return Gravity;
+            //calculate gravity from mass and radius
+            //convert to SOLAR MASS
+            double G = 6.67 * (Math.Pow(10, -11));
+            double M = this.Mass * (2.000 * Math.Pow(10, 30));
+            double R = this.Radius * (6.957 * Math.Pow(10, 8));
+            double Gravity = Math.Round(G * M / (R * R), 3);
+            return Gravity;
         }
     }
 
@@ -115,14 +115,24 @@ namespace StellarObjectConstructors
 
         public MainSequenceStage Stage { get; set; }
 
+        /// <summary>
+        /// Boolean value to state if the star is solar active ie more than twice as likely to pose a risk to terrestial life vs a Sol class Star.
+        /// </summary>
+        public bool isSolarActive { get; set; }
+
         //constructor
-        public Star(string nameString, double massDouble, double radiusDouble, int stageInt) : base(nameString, massDouble, radiusDouble)
+        public Star(string nameString, double massDouble, double radiusDouble, int stageInt, bool isSolarActiveBool) : base(nameString, massDouble, radiusDouble)
         {
             //add properties unique to stars
             this.Stage = (MainSequenceStage)Enum.ToObject(typeof(MainSequenceStage), stageInt);
+            this.isSolarActive = isSolarActiveBool;
         }
     }
 
+    /// <summary>
+    /// Class <c>Sol</c> An object which models the start Sol.
+    /// <seealso> Inherits from base: <c> Star</c> </seealso>
+    /// </summary>
     public class Sol : Star
     {
         /// <summary>
@@ -144,14 +154,59 @@ namespace StellarObjectConstructors
         /// </summary>
         public new MainSequenceStage Stage { get; set; } = MainSequenceStage.MainSequence;
 
+        /// <summary>
+        /// Boolean value to state if the star is solar active ie more than twice as likely to pose a risk to terrestial life vs a Sol class Star.
+        /// </summary>
+        bool isSolarActiveBool = false;
+
         //constructor
-        public Sol(string nameString = "Sol", double massDouble = 1, double radiusDouble = 1, int stageInt = 1) : base(nameString, massDouble, radiusDouble, stageInt)
+        public Sol(string nameString = "Sol", double massDouble = 1, double radiusDouble = 1, int stageInt = 1, bool isSolarActiveBool = false) : base(nameString, massDouble, radiusDouble, stageInt, isSolarActiveBool)
         {
             //add properties unique to Sol
 
         }
 
     }
+
+    /// <summary>
+    /// Class <c>Vilous</c> An object which models the start Vilous.
+    /// <seealso> Inherits from base: <c> Star </c> </seealso>
+    /// </summary>
+    public class Vilous : Star
+    {
+        /// <summary>
+        /// Gets and sets the name of the object.
+        /// </summary>
+        public new string Name = "Vilous";
+        /// <summary>
+        /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
+        /// </summary>
+        public new double Mass = 2;
+        /// <summary>
+        /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
+        /// </summary>
+        public new double Radius = 1.75;
+
+        /// <summary>
+        ///enum constants which correspond to the main sequence stage of the star.
+        /// Note- get by double value 0= White Dwarf, 1= Main Sequence Star, 2= Red Giant 3= Blue Giant
+        /// </summary>
+        public new MainSequenceStage Stage { get; set; } = MainSequenceStage.MainSequence;
+
+        /// <summary>
+        /// Boolean value to state if the star is solar active ie more than twice as likely to pose a risk to terrestial life vs a Sol class Star.
+        /// </summary>
+        bool isSolarActiveBool = true;
+
+        //constructor
+        public Vilous(string nameString = "Vilous", double massDouble = 1, double radiusDouble = 1, int stageInt = 1, bool isSolarActiveBool = true) : base(nameString, massDouble, radiusDouble, stageInt, isSolarActiveBool)
+        {
+            //add properties unique to Sol
+
+        }
+
+    }
+
 
     /// <summary>
     /// Class <c>Planet</c> An object which models a Planet.
@@ -194,7 +249,7 @@ namespace StellarObjectConstructors
         }
     }
 
-      /// <summary>
+    /// <summary>
     /// Class <c>Earth</c> An object which models the planet Earth.
     /// <seealso> Inherits from base: <c> Planet</c> </seealso>
     /// </summary>
@@ -212,32 +267,32 @@ namespace StellarObjectConstructors
         /// <summary>
         /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
         /// </summary>
-        public new double Radius  {get; set;} = 0.00916794;
+        public new double Radius { get; set; } = 0.00916794;
 
         /// <summary>
         /// Enum value which models the classification of a planet by composition.
         /// </summary>
-       
+
 
         /// <summary>
         ///Gets and sets the PlanetComposition of the object.
         /// </summary>
-        public new PlanetComposition Composition  = PlanetComposition.Earth_like;
+        public new PlanetComposition Composition = PlanetComposition.Earth_like;
 
         /// <summary>
         ///Gets and sets a boolean value representing the habitability of the planet.
         /// </summary>
-        public new bool IsHabitable  = true;
+        public new bool IsHabitable = true;
 
         //constructor
-        public Earth(string nameString = "Earth", double massDouble =  0.00000300273, double radiusDouble = 0.00916794, int compositionInt = 1, bool isHabitableBool = true) : base(nameString, massDouble, radiusDouble, compositionInt, isHabitableBool)
+        public Earth(string nameString = "Earth", double massDouble = 0.00000300273, double radiusDouble = 0.00916794, int compositionInt = 1, bool isHabitableBool = true) : base(nameString, massDouble, radiusDouble, compositionInt, isHabitableBool)
         {
             //add properties unique to planets
-          
+
         }
     }
 
-        /// <summary>
+    /// <summary>
     /// Class <c>Tal</c> An object which models the planet Tal.
     /// <seealso> Inherits from base: <c> Planet</c> </seealso>
     /// </summary>
@@ -255,29 +310,29 @@ namespace StellarObjectConstructors
         /// <summary>
         /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
         /// </summary>
-        public new double Radius  {get; set;} = 0.0185;
+        public new double Radius { get; set; } = 0.0185;
 
-       
+
 
         /// <summary>
         ///Gets and sets the PlanetComposition of the object.
         /// </summary>
-        public new PlanetComposition Composition  = PlanetComposition.SuperEarth;
+        public new PlanetComposition Composition = PlanetComposition.SuperEarth;
 
         /// <summary>
         ///Gets and sets a boolean value representing the habitability of the planet.
         /// </summary>
-        public new bool IsHabitable  = true;
+        public new bool IsHabitable = true;
 
         //constructor
-        public Tal(string nameString = "Tal", double massDouble =  0.0000065, double radiusDouble = 0.0185, int compositionInt = 1, bool isHabitableBool = true) : base(nameString, massDouble, radiusDouble, compositionInt, isHabitableBool)
+        public Tal(string nameString = "Tal", double massDouble = 0.0000065, double radiusDouble = 0.0185, int compositionInt = 1, bool isHabitableBool = true) : base(nameString, massDouble, radiusDouble, compositionInt, isHabitableBool)
         {
             //add properties unique to planets
-          
+
         }
 
 
 
-}
+    }
 
 }
