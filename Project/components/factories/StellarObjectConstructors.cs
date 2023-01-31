@@ -166,6 +166,7 @@ namespace StellarObjectConstructors
         public enum PlanetComposition
         {
             Rocky,
+            Earth_like,
             SuperEarth,
             GasGiant,
             IceGiant,

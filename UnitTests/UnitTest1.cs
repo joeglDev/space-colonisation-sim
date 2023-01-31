@@ -105,7 +105,7 @@ namespace UnitTests
         }
 
         //setup
-        Planet TestPlanet = new Planet("name", 1, 3, 1, false);
+        Planet TestPlanet = new Planet("name", 1, 3, 2, false);
     }
 
     /* Theories take multiple runs of tests and are sometimes exoected to sometimes return false
