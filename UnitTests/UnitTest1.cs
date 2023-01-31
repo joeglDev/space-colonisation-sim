@@ -57,14 +57,14 @@ namespace UnitTests
         {
             //passed constructor properties of StellarObject
             Assert.Equal(275.621, Sol.calculateGravity());
-             Assert.Equal(9.847, Earth.calculateGravity());
+             Assert.Equal(9.847, X.calculateGravity());
             
             //randomely assigned properties
         }
 
         //setup
         Sol Sol = new Sol();
-        Planet Earth = new Planet("Earth", 0.00000300273, 0.00916794, 0, true);
+        Planet X= new Planet("Earth", 0.00000300273, 0.00916794, 0, true);
        
         [Fact]
         /// <summary>
@@ -104,8 +104,28 @@ namespace UnitTests
             //randomely assigned properties
         }
 
+          [Fact]
+        /// <summary>
+        /// Method <c>PropertyTestUniquePlanets</c> tests properties of class Earth and Tal class properties.
+        /// </summary>
+        public void PropertyTestUniquePlanets()
+        {
+            //passed constructor properties of Earth
+            Assert.Equal("Earth", Earth.Name);
+            Assert.Equal(0.00000300273, Earth.Mass);
+            Assert.Equal(0.00916794, Earth.Radius);
+            Assert.Equal(Earth.PlanetComposition.Earth_like, Earth.Composition);
+            Assert.Equal(true, Earth.IsHabitable);
+            //randomely assigned properties
+        }
+
         //setup
         Planet TestPlanet = new Planet("name", 1, 3, 2, false);
+
+        Planet X = new Planet("Earth", 0.00000300273, 0.00916794, 0, true);
+
+        //unique planets
+        Earth Earth = new Earth();
     }
 
     /* Theories take multiple runs of tests and are sometimes exoected to sometimes return false
@@ -124,3 +144,6 @@ bool IsOdd(int value)
 }
     */
 }
+
+
+//various planet instances 
