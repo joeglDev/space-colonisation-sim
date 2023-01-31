@@ -160,6 +160,8 @@ namespace StellarObjectConstructors
     public class Planet : StellarObject
     {
 
+
+
         /// <summary>
         /// Enum value which models the classification of a planet by composition.
         /// </summary>
@@ -192,6 +194,90 @@ namespace StellarObjectConstructors
         }
     }
 
+      /// <summary>
+    /// Class <c>Earth</c> An object which models the planet Earth.
+    /// <seealso> Inherits from base: <c> Planet</c> </seealso>
+    /// </summary>
+    public class Earth : Planet
+    {
 
+        /// <summary>
+        /// Gets and sets the name of the object.
+        /// </summary>
+        public new string Name { get; set; } = "Earth";
+        /// <summary>
+        /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
+        /// </summary>
+        public new double Mass { get; set; } = 0.00000300273;
+        /// <summary>
+        /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
+        /// </summary>
+        public new double Radius  {get; set;} = 0.00916794;
+
+        /// <summary>
+        /// Enum value which models the classification of a planet by composition.
+        /// </summary>
+       
+
+        /// <summary>
+        ///Gets and sets the PlanetComposition of the object.
+        /// </summary>
+        public new PlanetComposition Composition  = PlanetComposition.Earth_like;
+
+        /// <summary>
+        ///Gets and sets a boolean value representing the habitability of the planet.
+        /// </summary>
+        public new bool IsHabitable  = true;
+
+        //constructor
+        public Earth(string nameString = "Earth", double massDouble =  0.00000300273, double radiusDouble = 0.00916794, int compositionInt = 1, bool isHabitableBool = true) : base(nameString, massDouble, radiusDouble, compositionInt, isHabitableBool)
+        {
+            //add properties unique to planets
+          
+        }
+    }
+
+        /// <summary>
+    /// Class <c>Tal</c> An object which models the planet Tal.
+    /// <seealso> Inherits from base: <c> Planet</c> </seealso>
+    /// </summary>
+    public class Tal : Planet
+    {
+
+        /// <summary>
+        /// Gets and sets the name of the object.
+        /// </summary>
+        public new string Name { get; set; } = "Tal";
+        /// <summary>
+        /// Gets and sets the mass/ solar mass (1 M = 2 * 10**30 Kg) of the object.
+        /// </summary>
+        public new double Mass { get; set; } = 0.0000065;
+        /// <summary>
+        /// Gets and sets the radius/ solar radius (1 R = 695,700 Km) of the object.
+        /// </summary>
+        public new double Radius  {get; set;} = 0.0185;
+
+       
+
+        /// <summary>
+        ///Gets and sets the PlanetComposition of the object.
+        /// </summary>
+        public new PlanetComposition Composition  = PlanetComposition.SuperEarth;
+
+        /// <summary>
+        ///Gets and sets a boolean value representing the habitability of the planet.
+        /// </summary>
+        public new bool IsHabitable  = true;
+
+        //constructor
+        public Tal(string nameString = "Tal", double massDouble =  0.0000065, double radiusDouble = 0.0185, int compositionInt = 1, bool isHabitableBool = true) : base(nameString, massDouble, radiusDouble, compositionInt, isHabitableBool)
+        {
+            //add properties unique to planets
+          
+        }
+
+
+
+}
 
 }

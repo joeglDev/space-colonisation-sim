@@ -16,8 +16,10 @@ SolSystem.AddStellarObject(Sol);
 SolSystem.GetSystemContents();
 Console.WriteLine(Sol.calculateGravity());
 
-Planet Earth = new Planet("Earth", 0.00000300273, 0.00916794, 0, true);
+Earth Earth = new Earth();
+Tal Tal = new Tal();
 Console.WriteLine(Earth.calculateGravity());
+Console.WriteLine(Tal.calculateGravity());
 
 
 

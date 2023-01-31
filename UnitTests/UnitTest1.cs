@@ -116,7 +116,14 @@ namespace UnitTests
             Assert.Equal(0.00916794, Earth.Radius);
             Assert.Equal(Earth.PlanetComposition.Earth_like, Earth.Composition);
             Assert.Equal(true, Earth.IsHabitable);
-            //randomely assigned properties
+
+             //passed constructor properties of Tal
+            Assert.Equal("Tal", Tal.Name);
+            Assert.Equal(0.0000065, Tal.Mass);
+            Assert.Equal(0.0185, Tal.Radius);
+            Assert.Equal(Tal.PlanetComposition.SuperEarth,Tal.Composition);
+            Assert.Equal(true, Tal.IsHabitable);
+          
         }
 
         //setup
@@ -126,7 +133,8 @@ namespace UnitTests
 
         //unique planets
         Earth Earth = new Earth();
-    }
+        Tal Tal = new Tal();
+    } 
 
     /* Theories take multiple runs of tests and are sometimes exoected to sometimes return false
 [Theory]

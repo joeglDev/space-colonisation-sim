@@ -11,7 +11,7 @@ In VS Code: install dotNet and run in terminal `dotnet run`.
 
 ### 1.1 Starting civilisation choices
  - `The Re-United Nations of Earth`: By the late 23rd century humanity has weathered climate change, wars and Kessler syndrome and emerged stronger. The many peoples of the Planet Earth have united and ventured forth to explore their native Sol system.
- - `The Shigu Imperium`: Consisting predominantly Northern Sergals hailing from the Vilous system; the Shigu Imperium has risen from the collapse of world peace on the planet Tal. Having reached its limits on its hostile homeworld the empire looks to the stars for further expansion plans.
+ - `The Shigu Imperium`: Consisting predominantly Northern Sergals hailing from the Vilous system; the Shigu Imperium has risen from the collapse of world peace on the planet Tal. Having reached its limits on its hostile homeworld the empire looks to the stars for further expansion plans. Fun fact despite being a larger SuperEarth class planet than Earth Tal has a lighter surface gravity owing to its larger radius.
  - `The Enlightened Kingdom of Gold Ring`: Lying across the wastes of Southern Deserts lies the prosperous mega city of Gold Ring. Made up of the Sergals, Agudner and Nevreans hailing from the Planet Tal the Kingdom's current ruler has experienced a divine insight and seeks to head towards the brightest stars in search of spiritual wisdom.
 
 ### 1.2. Map (start planet -> solar system -> neighbouring systems etc).
